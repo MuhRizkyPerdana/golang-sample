@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Menampilakan secret
-      run: ${{ secrets.DOCKER_HUB_USERNAME }}
+      run: echo ${{ secrets.DOCKER_HUB_USERNAME }}
     - name: Login to docker hub
       uses: docker/login-action@v2
       with:
