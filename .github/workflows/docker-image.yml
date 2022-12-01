@@ -25,4 +25,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/goapp:3.0
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/waktu:1.0

@@ -2,28 +2,16 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"net/http"
-	"os"
+	"time"
 )
 
-func homePage(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to the HomePage!\nApp Version: 3.0")
-}
-
-func envPage(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "List of environment variable:")
-	for _, env := range os.Environ() {
-		fmt.Fprintf(w, "- "+env+"\n")
-	}
-}
-
-func handleRequests() {
-	http.HandleFunc("/", homePage)
-	http.HandleFunc("/env", envPage)
-	log.Fatal(http.ListenAndServe(":80", nil))
-}
-
 func main() {
-	handleRequests()
+	currentTime := time.Now()
+	fmt.Printf("Waktu sekarang adalah: %d-%d-%d %d:%d:%d\n",
+		currentTime.Year(),
+		currentTime.Month(),
+		currentTime.Day(),
+		currentTime.Hour(),
+		currentTime.Hour(),
+		currentTime.Second())
 }
