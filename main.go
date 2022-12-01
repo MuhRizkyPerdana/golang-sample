@@ -8,7 +8,7 @@ import (
 )
 
 func homePage(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to the HomePage!\nApp Version: 1.0")
+	fmt.Fprintf(w, "Welcome to the HomePage!\nApp Version: 2.0")
 }
 
 func envPage(w http.ResponseWriter, r *http.Request) {
