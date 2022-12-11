@@ -30,9 +30,9 @@ jobs:
 #       with:
 #         username: ${{ secrets.DOCKER_HUB_USERNAME }}
 #         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-#     - name: Build and push to docker hub
-#       uses: docker/build-push-action@v3
-#       with:
-#         context: .
-#         push: true
+    - name: Build and push to docker hub
+      uses: docker/build-push-action@v3
+      with:
+        context: .
+        push: true
 #         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/goapp:3
