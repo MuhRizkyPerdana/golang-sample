@@ -21,6 +21,8 @@ jobs:
         username: _json_key
         password: ${{ secrets.GCR }}
     
+    - run: cat ~/.docker/config.json
+    
 #     - name: Menampilakan secret
 #       run: echo ${{ secrets.DOCKER_HUB_USERNAME }}
 #     - name: Login to docker hub
