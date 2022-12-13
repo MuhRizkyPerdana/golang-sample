@@ -24,4 +24,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: gcr.io/studidevops-369306/goapp:${{ github.ref_name }}
+        tags: asia.gcr.io/studidevops-369306/goapp:${{ github.ref_name }}
