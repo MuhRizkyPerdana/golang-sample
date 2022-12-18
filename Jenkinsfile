@@ -9,6 +9,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'go version'
+                sh 'apk add openssh'
             }
         }
         stage('Build') {
