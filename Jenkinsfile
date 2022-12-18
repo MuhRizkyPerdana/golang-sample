@@ -1,17 +1,13 @@
 pipeline {
-    agent {
-        docker { image 'golang:alpine3.16' }
-    }
+    agent none
     environment {
         TRAINER_PRIVATE_KEY = credentials('private-key-trainer')
     }
     stages {
-        stage('Test') {
-            steps {
-                sh 'go version'
-            }
-        }
         stage('Build') {
+            agent {
+                docker { image 'golang:alpine3.16' }
+            }
             steps {
                 sh 'HOME=${WORKSPACE} GOOS=darwin GOARCH=arm64 go build -o golang-sample-macos-arm64 main.go'   
             }
