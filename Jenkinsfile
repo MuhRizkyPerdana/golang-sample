@@ -13,11 +13,6 @@ pipeline {
             }
         }
         stage('Deploy to server') {
-            agent {
-                dockerfile {
-                    filename 'Dockerfile.build'
-                }
-            }
             steps {
                 sh 'ls'   
                 sh 'ssh -i ${TRAINER_PRIVATE_KEY} trainer@34.101.137.77 ls'
