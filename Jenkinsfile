@@ -20,7 +20,7 @@ pipeline {
             }
             steps {
                 sh 'ls'   
-                sh 'ssh -i ${TRAINER_PRIVATE_KEY} trainer@10.184.15.233 ls'
+                sh 'ssh -i ${TRAINER_PRIVATE_KEY} trainer@34.101.137.77 ls'
             }
         }
     }
