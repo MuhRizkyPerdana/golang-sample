@@ -18,10 +18,10 @@ pipeline {
         }
         stage('Deploy to server') {
             agent {
-                docker { image 'alpine' }
+                docker { image 'alpine:latest' }
             }
             steps {
-                sh 'ssh -o StrictHostKeyChecking=no -i $TRAINER_PRIVATE_KEY trainer@10.184.15.233 whoami'   
+                sh 'echo hai'   
             }
         }
     }
