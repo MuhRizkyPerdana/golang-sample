@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
     environment {
         TRAINER_PRIVATE_KEY = credentials('private-key-trainer')
     }
