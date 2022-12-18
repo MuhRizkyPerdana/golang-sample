@@ -15,7 +15,7 @@ pipeline {
         stage('Deploy to server') {
             steps {
                 sh 'ls'   
-                sh 'ssh -i ${TRAINER_PRIVATE_KEY} trainer@34.101.137.77 ls'
+                sh 'ssh -o StrictHostKeyChecking=no -i $TRAINER_PRIVATE_KEY trainer@34.101.137.77 ls'
             }
         }
     }
