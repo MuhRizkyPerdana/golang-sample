@@ -17,7 +17,7 @@ pipeline {
                 docker { image 'alpine:latest' }
             }
             steps {
-                sh 'echo hai'   
+                sh 'ls'   
             }
         }
     }
