@@ -15,7 +15,8 @@ pipeline {
         stage('Deploy to server') {
             agent {
                 dockerfile {
-                filename 'Dockerfile.build'
+                    filename 'Dockerfile.build'
+                }
             }
             steps {
                 sh 'ls'   
