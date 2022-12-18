@@ -21,9 +21,9 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-            archiveArtifacts artifacts: 'golang-sample-macos-arm64', fingerprint: true
-        }
-    }
+//     post {
+//         always {
+//             archiveArtifacts artifacts: 'golang-sample-macos-arm64', fingerprint: true
+//         }
+//     }
 }
