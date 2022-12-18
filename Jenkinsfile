@@ -18,6 +18,7 @@ pipeline {
             }
             steps {
                 sh 'ls'   
+                sh 'apk add openssh'
                 sh 'ssh -i ${TRAINER_PRIVATE_KEY} trainer@10.184.15.233 whoami'
             }
         }
