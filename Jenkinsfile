@@ -14,7 +14,8 @@ pipeline {
         }
         stage('Deploy to server') {
             agent {
-                docker { image 'alpine:latest' }
+                dockerfile {
+                filename 'Dockerfile.build'
             }
             steps {
                 sh 'ls'   
@@ -23,9 +24,9 @@ pipeline {
             }
         }
     }
-//     post {
-//         always {
-//             archiveArtifacts artifacts: 'golang-sample-macos-arm64', fingerprint: true
-//         }
-//     }
+    post {
+        always {
+            archiveArtifacts artifacts: 'golang-sample-macos-arm64', fingerprint: true
+        }
+    }
 }
