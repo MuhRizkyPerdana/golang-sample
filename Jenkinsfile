@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'GOOS=darwin GOARCH=arm64 go build -o golang-sample-macos-arm64 main.go'   
+                sh 'HOME=${WORKSPACE} GOOS=darwin GOARCH=arm64 go build -o golang-sample-macos-arm64 main.go'   
             }
         }
     }
