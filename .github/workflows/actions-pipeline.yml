@@ -53,10 +53,12 @@ jobs:
       run: GOOS=darwin GOARCH=arm64 go build -o build/darwin-arm64 .
     
     - name: Upload to Release
-      uses: svenstaro/upload-release-action@v2
+      uses: xresloader/upload-to-github-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
-        repo_token: ${{ secrets.TOKEN }}
-        file: build/*
-        tag: ${{ github.ref }}
-        overwrite: true
-        file_glob: true
+        file: "build/*"
+        tags: true
+        draft: false
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
