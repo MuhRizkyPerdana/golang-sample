@@ -5,7 +5,7 @@ RUN go mod download
 COPY *.go ./
 RUN go build -o /studidevops
 
-FROM golang:alpine3.16
+FROM alpine:latest
 WORKDIR /
 COPY --from=build /studidevops /studidevops
 EXPOSE 80
