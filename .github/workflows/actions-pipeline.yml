@@ -51,10 +51,9 @@ jobs:
     - name: Build Darwin ARM64
       run: GOOS=darwin GOARCH=arm64 go build -o build/darwin-arm64 .
     
-    - uses: xresloader/upload-to-github-release@v1
+    - name: Upload to release
+      uses: JasonEtco/upload-to-release@master
+      with:
+        args: build/*
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
-      with:
-        file: "build/*"
-        tags: true
-        draft: false
