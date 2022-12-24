@@ -56,5 +56,5 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
         file: "build/*"
-        tags: false
+        tags: true
         draft: false
