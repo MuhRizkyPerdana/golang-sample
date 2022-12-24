@@ -1,6 +1,9 @@
 name: Binary Release CI
 
-on: [push]
+on:
+  push:
+    tags:
+      - '*'
 
 jobs:
 
@@ -15,14 +18,24 @@ jobs:
       with:
         go-version: 1.18
 
+    - run: mkdir build
+
     - name: Build Linux AMD64
-      run: GOOS=linux GOARCH=amd64 go build -o linux-amd64 .
+      run: GOOS=linux GOARCH=amd64 go build -o build/linux-amd64 .
 
     - name: Build Windows AMD64
-      run: GOOS=windows GOARCH=amd64 go build -o windows-amd64.exe .
+      run: GOOS=windows GOARCH=amd64 go build -o build/windows-amd64.exe .
 
     - name: Build Darwin AMD64
-      run: GOOS=darwin GOARCH=amd64 go build -o darwin-amd64 .
+      run: GOOS=darwin GOARCH=amd64 go build -o build/darwin-amd64 .
 
     - name: Build Darwin ARM64
-      run: GOOS=darwin GOARCH=arm64 go build -o darwin-arm64 .
+      run: GOOS=darwin GOARCH=arm64 go build -o build/darwin-arm64 .
+    
+    - uses: xresloader/upload-to-github-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      with:
+        file: "build/*"
+        tags: true
+        draft: true
