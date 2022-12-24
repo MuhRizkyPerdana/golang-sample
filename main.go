@@ -13,12 +13,12 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 		errorHandler(w, r, http.StatusNotFound)
 		return
 	}
-	print("User access / OK 200\n")
-	fmt.Fprintf(w, "Golang Sample, Selamat Datang!\nApp Version: 7\nBelajar FluxCD Image Automation Update")
+	create_log("User access / OK 200")
+	fmt.Fprintf(w, "Golang Sample, Selamat Datang!\nApp Version: 8")
 }
 
 func envPage(w http.ResponseWriter, r *http.Request) {
-	print("User access /env OK 200\n")
+	create_log("User access /env OK 200")
 	fmt.Fprintf(w, "List of environment variable:")
 	for _, env := range os.Environ() {
 		fmt.Fprintf(w, "- "+env+"\n")
@@ -26,17 +26,37 @@ func envPage(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleRequests() {
-	print("Application running on port :8000\n")
+	create_log("Application running on port :8000")
 	http.HandleFunc("/", homePage)
 	http.HandleFunc("/env", envPage)
 	log.Fatal(http.ListenAndServe(":8000", nil))
 }
 
 func errorHandler(w http.ResponseWriter, r *http.Request, status int) {
-	print("User access " + r.URL.Path + " ERROR 404 \n")
+	create_log("User access " + r.URL.Path + " ERROR 404")
 	w.WriteHeader(status)
 	if status == http.StatusNotFound {
 		fmt.Fprint(w, "404")
+	}
+}
+
+func create_log(msg string) {
+	if len(os.Args) > 1 {
+		if os.Args[1] == "--log-file" {
+			f, err := os.OpenFile(os.Args[0]+".log",
+				os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+			if err != nil {
+				log.Println(err)
+			}
+			defer f.Close()
+			if _, err := f.WriteString(msg + "\n"); err != nil {
+				log.Println(err)
+			}
+		} else {
+			print(msg)
+		}
+	} else {
+		print(msg)
 	}
 }
 
