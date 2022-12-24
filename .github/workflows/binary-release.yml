@@ -1,9 +1,8 @@
 name: Binary Release CI
 
 on:
-  push:
-    tags:
-      - '*'
+  release:
+    types: [published]
 
 jobs:
 
