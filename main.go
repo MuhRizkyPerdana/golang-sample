@@ -40,6 +40,10 @@ func errorHandler(w http.ResponseWriter, r *http.Request, status int) {
 	}
 }
 
+func Hello(name string) string {
+	return "Hi, " + name
+}
+
 func create_log(msg string) {
 	if len(os.Args) > 1 {
 		if os.Args[1] == "--log-file" {
