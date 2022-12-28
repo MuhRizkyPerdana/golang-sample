@@ -12,7 +12,7 @@ Application running on port :8000
 
 ## Running Binary
 
-Download on [Release Page](https://github.com/aditirvan/golang-sample/releases)
+Download on [Release page](https://github.com/aditirvan/golang-sample/releases)
 
 
 ### Print logs to stdout/stderr
