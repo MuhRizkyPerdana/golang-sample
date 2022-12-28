@@ -14,7 +14,7 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	create_log("User access / OK 200")
-	fmt.Fprintf(w, "Golang Sample, Selamat Datang!\nApp Version: 10")
+	fmt.Fprintf(w, "Golang Sample, Selamat Datang!\nApp Version: 12")
 }
 
 func envPage(w http.ResponseWriter, r *http.Request) {
