@@ -1,6 +1,9 @@
 # golang-sample
-Golang web server sample
+Golang web server sample app
 Port: 8000
 
-# Jenkins
-Ini untuk trigger jenkins task poll scm
+## Run
+### Print logs to stdout/stderr
+`./goapp`
+### Print logs to file goapp.log
+`./goapp --log-file`
