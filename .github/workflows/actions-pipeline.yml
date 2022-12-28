@@ -7,25 +7,44 @@ on:
 
 jobs:
 
-  docker-build-and-push:
+  gcr-build-and-push:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
     
-    - name: Login to GCR
+    - name: Login to Google Container Registry
       uses: docker/login-action@v2
       with:
         registry: asia.gcr.io
         username: _json_key
         password: ${{ secrets.GCR }}
         
-    - name: Build and push to docker hub
+    - name: Build and push to google container registry
       uses: docker/build-push-action@v3
       with:
         context: .
         push: true
         tags: asia.gcr.io/studidevops-369306/goapp:${{ github.ref_name }}
+
+  docker-hub-build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+        
+    - name: Build and push to docker hub
+      uses: docker/build-push-action@v3
+      with:
+        context: .
+        push: true
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/goapp:${{ github.ref_name }}
 
   binary-build:
     runs-on: ubuntu-latest
