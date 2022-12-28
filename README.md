@@ -11,6 +11,10 @@ Application running on port :8000
 
 
 ## Running Binary
+
+Download on [Release Page](releases)
+
+
 ### Print logs to stdout/stderr
 `./goapp`
 ### Print logs to file goapp.log
