@@ -4,7 +4,7 @@ Port: 8000
 
 ## Docker Run
 ```
-# docker run --name goapp -p 8000:8000 aditirvan/goapp:12
+# docker run --name goapp -p 8000:8000 aditirvan/goapp:13
 
 Application running on port :8000
 ```
