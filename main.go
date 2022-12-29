@@ -90,7 +90,7 @@ func api(w http.ResponseWriter, r *http.Request) {
 }
 
 func apiTraceChild(parentId string, traceId string, tms int) []TraceTempoChild {
-	create_log("User access [func] OK")
+	create_log("Call function [apiTraceChild] OK")
 	start := time.Now()
 	var timeStampMicro = time.Now().UnixNano() / int64(time.Microsecond)
 
