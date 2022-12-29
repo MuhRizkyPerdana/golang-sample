@@ -17,5 +17,8 @@ Download on [Release page](https://github.com/aditirvan/golang-sample/releases)
 
 ### Print logs to stdout/stderr
 `./goapp`
-### Print logs to file goapp.log
-`./goapp --log-file`
+### Arguments
+```
+--log-file : Log app to saved to file (ex: goapp.log)
+--trace-url=http://tempo-host-url:port : enable tracing with grafana tempo
+```
