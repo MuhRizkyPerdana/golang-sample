@@ -1,1 +1,1 @@
-# golang-sample
+# golang-sample scm
